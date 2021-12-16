@@ -42,7 +42,7 @@ jobs:
               with:
                 host: ${{ secrets.host }}
                 port: 2022
-                username: 'githubyx8.d90f9279'
+                username: 'github.0b0aa2d4'
                 password: ${{ secrets.password }}
                 localPath: './dist/'
                 remotePath: './webroot/'
