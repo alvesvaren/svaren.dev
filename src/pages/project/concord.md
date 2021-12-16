@@ -8,5 +8,4 @@ tags:
     - tag
 ---
 
-## Markdown
-Enter content here
+Concord is a not finished qt discord client (with a custom api)
