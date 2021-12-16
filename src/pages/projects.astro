@@ -1,13 +1,7 @@
 ---
 import Base from "../layouts/base.astro";
-
-interface Project {
-    title: string;
-    date: string;
-    repo?: string;
-    description: string;
-    tags: string[];
-}
+import { Project } from "../interfaces.ts";
+import ProjectLink from "../components/projectLink.tsx";
 
 const projects = Astro.fetchContent<Project>("./project/**/*.md")
     .filter(({ date }) => !!date)
@@ -15,12 +9,5 @@ const projects = Astro.fetchContent<Project>("./project/**/*.md")
 ---
 
 <Base title="Projects">
-    {projects.map((project) => (
-        <article>
-            <h2>
-                <a href={project.url}>{project.title}</a>
-            </h2>
-            <p>{project.description}</p>
-        </article>
-    ))}
+    {projects.map((project) => <ProjectLink project={project} />)}
 </Base>

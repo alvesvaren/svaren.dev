@@ -1,6 +1,35 @@
 ---
 import Base from "../layouts/base.astro";
-const { title, description, astro: {html} } = Astro.props.content;
+interface ProjectProps {
+    title: string;
+    description: string;
+    tags: string[];
+    astro: {
+        html: string;
+    };
+}
+
+const {
+    title,
+    description,
+    tags,
+    astro: { html },
+}: ProjectProps = Astro.props.content;
 ---
 
-<Base {title}>{html}</Base>
+<Base {title}>
+    <div>{html}</div>
+
+    <footer>
+        <h2>Tags:</h2>
+        <ul>
+            {tags.map((tag) => (
+                <li key={tag}>
+                    <a class="tag" href={"/tag/" + tag}>
+                        {tag}
+                    </a>
+                </li>
+            ))}
+        </ul>
+    </footer>
+</Base>

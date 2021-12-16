@@ -1,0 +1,32 @@
+---
+import Base from "../../layouts/base.astro";
+import { Project } from "../../interfaces.ts";
+import ProjectLink from '../../components/projectLink.tsx';
+
+const { name } = Astro.request.params;
+
+const projects = Array.from(Astro.fetchContent<Project>("../project/**/*.md").filter(({ tags }) => new Set(tags).has(name))).sort(
+    (a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf()
+);
+
+export function getStaticPaths() {
+    const projects = Astro.fetchContent<Project>("../project/**/*.md")
+        .filter(({ date }) => !!date)
+        .sort((a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf());
+    const tags: string[] = [];
+    projects.forEach((project) => {
+        project.tags.forEach((tag: string) => {
+            if (!tags.includes(tag)) {
+                tags.push(tag);
+            }
+        });
+    });
+    return tags.map((tag) => ({ params: { name: tag } }));
+}
+---
+
+<Base title={`Projects with tag ${name}`}>
+    {projects.map((project) => (
+        <ProjectLink project={project} />
+    ))}
+</Base>
