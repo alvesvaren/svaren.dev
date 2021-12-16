@@ -1,0 +1,48 @@
+name: Deploy
+
+on:
+    push:
+        branches: [main]
+    pull_request:
+        branches: [main]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        name: Build and deploy website to https://svaren.dev
+
+        strategy:
+            matrix:
+                node-version: [16.x]
+
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v2
+
+            - name: Set up Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v1
+              with:
+                  node-version: ${{ matrix.node-version }}
+
+            - name: Cache dependencies
+              uses: actions/cache@v2
+              with:
+                  path: |
+                      **/node_modules
+                  key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+
+            - name: Install dependencies
+              run: yarn install
+
+            - name: Build site
+              run: yarn build
+
+            - name: Upload Files to server
+              uses: Creepios/sftp-action@v1.0.3
+              with:
+                host: ${{ secrets.host }}
+                port: 2022
+                username: 'github.0b0aa2d4'
+                password: ${{ secrets.password }}
+                localPath: './dist/'
+                remotePath: './webroot/'
