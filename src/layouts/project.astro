@@ -4,6 +4,7 @@ interface ProjectProps {
     title: string;
     description: string;
     tags: string[];
+    repo: string;
     astro: {
         html: string;
     };
@@ -13,11 +14,13 @@ const {
     title,
     description,
     tags,
+    repo,
     astro: { html },
 }: ProjectProps = Astro.props.content;
 ---
 
 <Base {title}>
+    <a href={repo} target="_blank">View project on GitHub</a>
     <div>{html}</div>
 
     <footer>
