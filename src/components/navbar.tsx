@@ -18,6 +18,7 @@ export default function NavBar() {
             <ul>
                 <NavItem to='/'>Home</NavItem>
                 <NavItem to='/projects'>Projects</NavItem>
+                <NavItem to='/#contact'>Contact</NavItem>
                 <NavItem to='https://github.com' external>
                     GitHub
                 </NavItem>

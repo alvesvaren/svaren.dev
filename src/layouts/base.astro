@@ -1,14 +1,19 @@
 ---
-import NavBar from '../components/navbar.tsx';
-const { title } = Astro.props;
+import NavBar from "../components/navbar.tsx";
+const { title, tabTitle } = Astro.props;
+const currentYear = new Date().getFullYear();
 ---
 
 <html lang="en">
     <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charSet="UTF-8" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin={""} />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin={''} />
         <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap" rel="stylesheet" />
-        <link rel="stylesheet" href={Astro.resolve("../styles/global.scss")} />
+        <link rel="stylesheet" href={Astro.resolve('../styles/global.scss')} />
+        <title>{tabTitle || title} - Alve Svarén</title>
     </head>
     <body>
         <NavBar />
@@ -16,6 +21,6 @@ const { title } = Astro.props;
             <h1>{title}</h1>
             <slot />
         </main>
-        <footer>footer</footer>
+        <footer>&copy; {currentYear} Alve Svarén</footer>
     </body>
 </html>
