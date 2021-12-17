@@ -1,7 +1,7 @@
 import classNames from "classnames";
-import {ComponentChild} from 'preact';
+import * as React from "react";
 
-function NavItem(props: { to: string; children: ComponentChild; active?: boolean; external?: boolean }) {
+function NavItem(props: { to: string; children: React.ReactNode; active?: boolean; external?: boolean }) {
     const { to, children, active, external } = props;
     return (
         <li className={classNames("nav-item", { active })}>
@@ -16,9 +16,9 @@ export default function NavBar() {
     return (
         <nav>
             <ul>
-                <NavItem to="/">Home</NavItem>
-                <NavItem to="/projects">Projects</NavItem>
-                <NavItem to="https://github.com" external>
+                <NavItem to='/'>Home</NavItem>
+                <NavItem to='/projects'>Projects</NavItem>
+                <NavItem to='https://github.com' external>
                     GitHub
                 </NavItem>
             </ul>
