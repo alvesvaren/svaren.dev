@@ -10,6 +10,6 @@ tags:
     - dev
 ---
 
-This is a really cool project
+This page was built using [astro.build](https://astro.build)
 
-[test](https://github.com/)
+Astro is a static site builder that can hydrate components from frameworks like react or svelte client side, only when needed, sending clean code from the server while still being able to use it for complex websites.
