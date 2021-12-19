@@ -2,17 +2,18 @@
 // Component Imports
 import Base from "../layouts/base.astro";
 
-// Data Fetching: List all Markdown posts in the repo.
-const projects = Astro.fetchContent("./project/**/*.md");
-const featuredProject = projects[0];
+function calcAge(birthday: Date) {
+    var ageDifMs = Date.now() - birthday.getTime();
+    var ageDate = new Date(ageDifMs);
+    return Math.abs(ageDate.getUTCFullYear() - 1970);
+}
 
-// Full Astro Component Syntax:
-// https://docs.astro.build/core-concepts/astro-components/
+const age = calcAge(new Date(2003, 3, 14));
 ---
 
 <Base title="Alve Svarén" tabTitle="Home">
     <section>
-        I am a student at the gymnasium NTI Johanneberg studying Information Technology (third/final year).
+        I am a student at the gymnasium NTI Johanneberg studying Information Technology (third/final year), currently {age} years old.
 
         <h2>Skills</h2>
         <h3>Languages</h3>
@@ -56,5 +57,6 @@ const featuredProject = projects[0];
 
         <p>PGP fingerprint: <code class="pre">975D 51E8 7E37 C570 2E9C{'  '}32D9 F8D0 AD40 30FA C97D</code></p>
         <p>Email: <a href="mailto:alve@svaren.dev">alve@svaren.dev</a></p>
+        <p>Discord: <span class="select">Alve#0001</span></p>
     </section>
 </Base>
