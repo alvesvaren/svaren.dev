@@ -5,6 +5,8 @@ on:
         branches: [main]
     pull_request:
         branches: [main]
+    schedule:
+        - cron: "0 5 * * */3"
 
 jobs:
     build:
@@ -40,9 +42,9 @@ jobs:
             - name: Upload Files to server
               uses: Creepios/sftp-action@v1.0.3
               with:
-                host: ${{ secrets.host }}
-                port: 2022
-                username: 'github.0b0aa2d4'
-                password: ${{ secrets.password }}
-                localPath: './dist/'
-                remotePath: './webroot/'
+                  host: ${{ secrets.host }}
+                  port: 2022
+                  username: "github.0b0aa2d4"
+                  password: ${{ secrets.password }}
+                  localPath: "./dist/"
+                  remotePath: "./webroot/"
