@@ -1,1 +1,1 @@
-# svaren.dev
+# wych.dev
