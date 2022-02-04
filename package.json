@@ -1,28 +1,27 @@
 {
-  "name": "@example/portfolio",
-  "version": "0.0.1",
-  "private": true,
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "format": "yarn prettier -w ."
-  },
-  "devDependencies": {
-    "@astrojs/renderer-react": "^0.3.1",
-    "@types/react": "^17.0.37",
-    "@types/react-dom": "^17.0.11",
-    "astro": "^0.21.12",
-    "prettier-plugin-astro": "^0.0.11",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
-  },
-  "dependencies": {
-    "@types/classnames": "^2.3.1",
-    "@types/jest": "^27.0.3",
-    "@types/node": "^17.0.0",
-    "classnames": "^2.3.1",
-    "typescript": "^4.5.4"
-  }
+    "name": "@example/portfolio",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+        "dev": "astro dev",
+        "start": "astro dev",
+        "build": "astro build",
+        "preview": "astro preview",
+        "format": "yarn prettier -w ."
+    },
+    "dependencies": {
+        "@types/jest": "^27.4.0",
+        "@types/node": "^17.0.14",
+        "classnames": "^2.3.1",
+        "typescript": "^4.5.5"
+    },
+    "devDependencies": {
+        "@astrojs/renderer-react": "^0.4.1",
+        "@types/react": "^17.0.39",
+        "@types/react-dom": "^17.0.11",
+        "astro": "^0.22.20",
+        "prettier-plugin-astro": "^0.0.12",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2"
+    }
 }

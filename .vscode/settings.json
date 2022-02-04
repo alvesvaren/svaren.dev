@@ -2,5 +2,9 @@
     "editor.formatOnPaste": true,
     "editor.detectIndentation": false,
     "editor.tabSize": 4,
-    "cSpell.words": ["astro", "webdev"]
+    "cSpell.words": [
+        "astro",
+        "astrojs",
+        "webdev"
+    ]
 }
