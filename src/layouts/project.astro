@@ -19,7 +19,7 @@ const {
 }: ProjectProps = Astro.props.content;
 ---
 
-<Base {title}>
+<Base {title} {description}>
     <a href={repo} target="_blank">View project on GitHub</a>
     <div>{html}</div>
 
